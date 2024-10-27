@@ -5,9 +5,20 @@ import tailwind from "@astrojs/tailwind";
 import vercel from "@astrojs/vercel/serverless";
 import vue from "@astrojs/vue";
 
+import { codecovVitePlugin } from "@codecov/vite-plugin";
+
 // https://astro.build/config
 export default defineConfig({
   integrations: [tailwind({ applyBaseStyles: false }), vue()],
   output: "server",
   adapter: vercel(),
+  vite: {
+    plugins: [
+      codecovVitePlugin({
+        enableBundleAnalysis: process.env.CODECOV_TOKEN !== undefined,
+        bundleName: "product-list-with-cart",
+        uploadToken: process.env.CODECOV_TOKEN,
+      }),
+    ],
+  },
 });

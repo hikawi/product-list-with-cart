@@ -9,6 +9,7 @@ export default getViteConfig({
     setupFiles: [
       "./tests/vitest-setup.ts",
     ],
+    reporters: ["junit"],
     coverage: {
       provider: "istanbul",
       enabled: true,
