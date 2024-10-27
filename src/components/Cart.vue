@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { $cart } from "@/stores/cart";
+import { $confirmModal } from "@/stores/confirm-modal";
 import { useStore } from "@nanostores/vue";
 import { computed, onMounted, ref } from "vue";
 import CartListing from "./CartListing.vue";
@@ -38,6 +39,7 @@ onMounted(() => {
 
       <button
         class="text-preset-3 rounded-full bg-red px-6 py-4 text-white hover:bg-gradient-to-r hover:from-black/25 hover:to-black/25"
+        @click="() => $confirmModal.set(true)"
       >
         Confirm Order
       </button>

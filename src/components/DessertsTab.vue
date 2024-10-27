@@ -43,7 +43,12 @@ onUnmounted(() => {
 </script>
 
 <template>
-  <div class="flex w-full flex-col gap-4" tabindex="0" ref="container">
+  <div
+    class="flex w-full flex-col gap-4"
+    tabindex="0"
+    ref="container"
+    data-testid="container"
+  >
     <div class="flex w-full flex-col items-center">
       <picture class="relative z-0 h-[13.25rem] w-full rounded-lg xl:h-[15rem]">
         <source :srcset="props.image.desktop" media="(min-width: 1280px)" />

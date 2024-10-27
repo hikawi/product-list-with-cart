@@ -1,5 +1,5 @@
+import { normalize } from "@/stores/cart";
 import data from "./data.json";
-import { normalize } from "./stores/cart";
 
 const mappings = new Map<
   string,
