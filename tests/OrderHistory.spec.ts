@@ -88,8 +88,8 @@ describe("OrderHistory", () => {
   });
 
   it("should contain nothing if errors in localStorage", async () => {
-    setTestStorageKey("history:3000000", "undefined"); // Bad data, ignore instead.
+    setTestStorageKey("history:3000000", "undefined"); // Bad data, it should ignore instead.
     await allTasks();
-    expect($history.get()).toEqual(testData);
+    expect($history.get()).toEqual(testData); // Completely ignore that bad node we added.
   });
 });
