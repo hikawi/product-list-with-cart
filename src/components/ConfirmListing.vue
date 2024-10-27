@@ -1,16 +1,11 @@
 <script setup lang="ts">
 import { mappings } from "@/data";
-import { $cart } from "@/stores/cart";
-import { useStore } from "@nanostores/vue";
-import { computed, onMounted, ref } from "vue";
+import { computed } from "vue";
 
-const cart = useStore($cart);
-const mounted = ref(false);
-const keys = computed(() => (mounted.value ? Object.keys(cart.value) : []));
-
-onMounted(() => {
-  mounted.value = true;
-});
+const props = defineProps<{
+  cart: { [id: string]: number };
+}>();
+const keys = computed(() => Object.keys(props.cart));
 </script>
 
 <template>

@@ -8,6 +8,7 @@ import ConfirmListing from "./ConfirmListing.vue";
 import IconOrderConfirm from "./icons/IconOrderConfirm.vue";
 
 const confirmModal = useStore($confirmModal);
+const cart = useStore($cart);
 
 function confirm() {
   pushHistory();
@@ -35,7 +36,7 @@ function confirm() {
       </div>
 
       <div class="flex flex-col gap-6 rounded-lg bg-rose-50 p-6">
-        <ConfirmListing />
+        <ConfirmListing :cart />
         <hr class="border-rose-100" />
         <CartTotal />
       </div>

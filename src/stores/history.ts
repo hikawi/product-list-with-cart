@@ -20,7 +20,7 @@ const $history = persistentMap<{ [time: string]: Cart }>("history:", {}, {
 });
 
 function pushHistory() {
-  const date = new Date();
+  const date = new Date(Date.now());
   $history.setKey(date.getTime(), $cart.get());
 }
 
