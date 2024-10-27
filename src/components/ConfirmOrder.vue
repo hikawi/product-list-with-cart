@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import { $cart } from "@/stores/cart";
 import { $confirmModal } from "@/stores/confirm-modal";
-import { pushHistory } from "@/stores/history";
 import { useStore } from "@nanostores/vue";
 import CartTotal from "./CartTotal.vue";
 import ConfirmListing from "./ConfirmListing.vue";
@@ -11,7 +10,6 @@ const confirmModal = useStore($confirmModal);
 const cart = useStore($cart);
 
 function confirm() {
-  pushHistory();
   $cart.set({});
   $confirmModal.set(false);
 }

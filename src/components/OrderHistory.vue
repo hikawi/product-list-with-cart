@@ -39,6 +39,4 @@ onMounted(() => {
       </li>
     </template>
   </ul>
-
-  <p class="text-preset-3 animate-pulse text-rose-500" v-else>Loading</p>
 </template>

@@ -13,7 +13,7 @@ const $history = persistentMap<{ [time: string]: Cart }>("history:", {}, {
     try {
       return JSON.parse(val);
     } catch (e) {
-      return {};
+      return undefined;
     }
   },
   listen: false,
