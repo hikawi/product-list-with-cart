@@ -7,13 +7,12 @@ export default getViteConfig({
     setupFiles: [
       "./tests/vitest-setup.ts",
     ],
-    reporters: (process.env.CI ? [["junit", { outputFile: "./test-results/results.xml" }]] : "verbose"),
+    reporters: (process.env.CI ? [["github-actions"], ["default"], ["junit", { outputFile: "./test-results/results.xml" }]] : "verbose"),
     coverage: {
       provider: "istanbul",
-      enabled: true,
       reporter: (process.env.CI ? "json" : "text"),
       exclude: ["./src/layouts/**", "./src/pages/**"],
-      include: ["**"],
+      reportOnFailure: true,
     },
     environment: "jsdom",
   },
