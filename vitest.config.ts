@@ -1,20 +1,19 @@
 /// <reference types="vitest" />
-import vue from "@astrojs/vue";
-import { getViteConfig } from 'astro/config';
+import { getViteConfig } from "astro/config";
 
 export default getViteConfig({
-  plugins: [vue()],
   test: {
     include: ["./tests/**/*.{test,spec}.?(c|m)[jt]s?(x)"],
     setupFiles: [
       "./tests/vitest-setup.ts",
     ],
-    reporters: ["junit"],
+    reporters: (process.env.CI ? [["junit", { outputFile: "./test-results/results.xml" }]] : "verbose"),
     coverage: {
       provider: "istanbul",
       enabled: true,
-      reporter: ["text", "json"],
+      reporter: (process.env.CI ? "json" : "text"),
       exclude: ["./src/layouts/**", "./src/pages/**"],
+      include: ["**"],
     },
     environment: "jsdom",
   },

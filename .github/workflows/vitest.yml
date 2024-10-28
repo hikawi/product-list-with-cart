@@ -19,7 +19,9 @@ jobs:
         run: npm install
 
       - name: Run tests
-        run: npx vitest run --coverage
+        run: npx vitest run
+        env:
+          CI: true
 
       - name: Upload results to Codecov
         uses: codecov/codecov-action@v4
@@ -31,3 +33,4 @@ jobs:
         uses: codecov/test-results-action@v1
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
+          files: ./test-results/results.xml

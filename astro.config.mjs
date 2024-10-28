@@ -1,3 +1,5 @@
+/// <reference types="vitest" />
+
 // @ts-check
 import { defineConfig } from "astro/config";
 
@@ -11,7 +13,7 @@ import { codecovVitePlugin } from "@codecov/vite-plugin";
 export default defineConfig({
   integrations: [tailwind({ applyBaseStyles: false }), vue()],
   output: "server",
-  adapter: vercel(),
+  adapter: vercel({ imageService: true }),
   vite: {
     plugins: [
       codecovVitePlugin({
@@ -21,4 +23,5 @@ export default defineConfig({
       }),
     ],
   },
+  site: "https://product-list-with-cart.frilly.dev/",
 });
