@@ -2,6 +2,13 @@
 
 This is a solution to the [Product list with cart challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/product-list-with-cart-5MmqLVAp_d). Frontend Mentor challenges help you improve your coding skills by building realistic projects.
 
+<div align="center">
+
+![Codecov](https://img.shields.io/codecov/c/github/hikawi/product-list-with-cart?style=for-the-badge&label=coverage)
+![GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/hikawi/product-list-with-cart/vitest.yml?style=for-the-badge)
+
+</div>
+
 ## Table of contents
 
 - [Frontend Mentor - Product list with cart solution](#frontend-mentor---product-list-with-cart-solution)
