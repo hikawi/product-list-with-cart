@@ -1,5 +1,6 @@
 /// <reference types="vitest" />
 import { getViteConfig } from "astro/config";
+import { coverageConfigDefaults } from "vitest/config";
 
 export default getViteConfig({
   test: {
@@ -11,7 +12,7 @@ export default getViteConfig({
     coverage: {
       provider: "istanbul",
       reporter: (process.env.CI ? "json" : "text"),
-      exclude: ["./src/layouts/**", "./src/pages/**"],
+      exclude: ["./src/layouts/**", "./src/pages/**", ...coverageConfigDefaults.exclude],
       reportOnFailure: true,
     },
     environment: "jsdom",

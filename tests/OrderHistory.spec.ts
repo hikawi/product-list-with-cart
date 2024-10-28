@@ -47,6 +47,16 @@ describe("OrderHistory", () => {
     expect(comp.queryByText("crickets sounds")).toBeInTheDocument();
   });
 
+  it("should show normally if there's 1 history node", async () => {
+    setTestStorageKey("history:2000000", undefined);
+    const comp = render(OrderHistory);
+    await allTasks();
+
+    const date = new Date(1000000).toLocaleString();
+    const heading = comp.queryByRole("heading", { name: date });
+    expect(heading).toBeInTheDocument();
+  })
+
   it("should show accordingly if there's history", async () => {
     const comp = render(OrderHistory);
     await allTasks();
