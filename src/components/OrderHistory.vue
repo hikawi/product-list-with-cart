@@ -8,13 +8,11 @@ const history = useStore($history);
 const mounted = ref(false);
 const keys = computed(() => {
   const historyKeys = Object.keys(history.value);
-  if (historyKeys.length === 0)
-    return [];
-  if (historyKeys.length === 1)
-    return historyKeys;
+  if (historyKeys.length === 0) return [];
+  if (historyKeys.length === 1) return historyKeys;
   return historyKeys.toSorted((a, b) => {
     return parseInt(b) - parseInt(a);
-  }),
+  });
 });
 
 onMounted(() => {
