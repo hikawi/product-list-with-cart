@@ -7,7 +7,7 @@ export default getViteConfig({
     setupFiles: [
       "./tests/vitest-setup.ts",
     ],
-    reporters: (process.env.CI ? [["github-actions"], ["default"], ["junit", { outputFile: "./test-results/results.xml" }]] : "verbose"),
+    reporters: (process.env.CI ? ["github-actions", ["junit", { outputFile: "./test-results/results.xml" }]] : "verbose"),
     coverage: {
       provider: "istanbul",
       reporter: (process.env.CI ? "json" : "text"),
